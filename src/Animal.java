@@ -20,6 +20,10 @@ public class Animal implements Comparable<Animal>{
         return age;
     }
 
+    public String getType(){
+        return type;
+    }
+
     @Override
     public String toString() {
         return name + " the " + desc + " " + type + ", age " + age;

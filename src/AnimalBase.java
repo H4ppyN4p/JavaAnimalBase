@@ -32,9 +32,22 @@ public class AnimalBase {
         return animals;
     }
 
-    public void sortBy(String sort) {
-        NameComparator nc = new NameComparator();
-        Collections.sort(animals, nc);
+    public void sortBy(String sort, String direction) {
+        NameComparator nameComparator = new NameComparator(direction);
+        TypeComparator typeComparator = new TypeComparator(direction);
+        AgeComparator ageComparator = new AgeComparator(direction);
+
+
+        if (sort.equals("name")){
+            Collections.sort(animals, nameComparator);
+
+        } else if (sort.equals("type")){
+            Collections.sort(animals, typeComparator);
+
+        } else if (sort.equals("age")){
+            Collections.sort(animals, ageComparator);
+
+        }
     }
 
     public void createNewAnimal(String name, String description, String type, int age) {
